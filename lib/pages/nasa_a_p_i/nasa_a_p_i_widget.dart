@@ -3,28 +3,28 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
+import 'nasa_a_p_i_model.dart';
+export 'nasa_a_p_i_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({super.key});
+class NasaAPIWidget extends StatefulWidget {
+  const NasaAPIWidget({super.key});
 
-  static String routeName = 'HomePage';
-  static String routePath = '/homePage';
+  static String routeName = 'NasaAPI';
+  static String routePath = '/nasaAPI';
 
   @override
-  State<HomePageWidget> createState() => _HomePageWidgetState();
+  State<NasaAPIWidget> createState() => _NasaAPIWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
-  late HomePageModel _model;
+class _NasaAPIWidgetState extends State<NasaAPIWidget> {
+  late NasaAPIModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => NasaAPIModel());
   }
 
   @override
@@ -56,7 +56,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ),
           );
         }
-        final homePageApinasaResponse = snapshot.data!;
+        final nasaAPIApinasaResponse = snapshot.data!;
 
         return GestureDetector(
           onTap: () {
@@ -118,7 +118,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       child: Text(
                         'Author:${valueOrDefault<String>(
                           ApinasaCall.author(
-                            homePageApinasaResponse.jsonBody,
+                            nasaAPIApinasaResponse.jsonBody,
                           ),
                           'No author name',
                         )}',
@@ -135,7 +135,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.network(
                           ApinasaCall.image(
-                            homePageApinasaResponse.jsonBody,
+                            nasaAPIApinasaResponse.jsonBody,
                           )!,
                           width: 306.67,
                           height: 290.1,
@@ -149,7 +149,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       child: Text(
                         valueOrDefault<String>(
                           ApinasaCall.date(
-                            homePageApinasaResponse.jsonBody,
+                            nasaAPIApinasaResponse.jsonBody,
                           ),
                           'No date',
                         ),
@@ -166,7 +166,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       child: Text(
                         valueOrDefault<String>(
                           ApinasaCall.title(
-                            homePageApinasaResponse.jsonBody,
+                            nasaAPIApinasaResponse.jsonBody,
                           ),
                           'No title',
                         ),
@@ -184,7 +184,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         child: Text(
                           valueOrDefault<String>(
                             ApinasaCall.explanation(
-                              homePageApinasaResponse.jsonBody,
+                              nasaAPIApinasaResponse.jsonBody,
                             ),
                             'No explanation',
                           ),

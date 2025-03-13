@@ -42,11 +42,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, _) => NavBarPage(),
         ),
         FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
+          name: NasaAPIWidget.routeName,
+          path: NasaAPIWidget.routePath,
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'HomePage')
-              : HomePageWidget(),
+              ? NavBarPage(initialPage: 'NasaAPI')
+              : NasaAPIWidget(),
         ),
         FFRoute(
           name: RickAndMortyWidget.routeName,
@@ -54,6 +54,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'RickAndMorty')
               : RickAndMortyWidget(),
+        ),
+        FFRoute(
+          name: BreakingBadAPIWidget.routeName,
+          path: BreakingBadAPIWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'breakingBadAPI')
+              : BreakingBadAPIWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

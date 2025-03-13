@@ -87,6 +87,33 @@ class RickAndMortyCall {
           .toList();
 }
 
+class BreakingBadAPICall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'BreakingBadAPI',
+      apiUrl: 'https://api.breakingbadquotes.xyz/v1/quotes',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? quote(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].quote''',
+      ));
+  static String? author(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].author''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
